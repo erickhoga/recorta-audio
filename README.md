@@ -1,6 +1,6 @@
 # Recorta
 
-Editor local de áudio com seleção visual e exportação em MP3. O arquivo é processado inteiramente no navegador.
+Editor local de áudio com seleção visual e exportação em MP3. Permite escolher vários trechos, reordená-los e uni-los em um único arquivo. Todo o processamento acontece no navegador.
 
 ## Versão online
 

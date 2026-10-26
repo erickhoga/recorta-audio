@@ -53,7 +53,7 @@
 
           <div class="selection-controls">
             <label>
-              <span>Início</span>
+              <span id="segmentEditorTitle">Trecho 1 · início</span>
               <input id="startTime" type="number" min="0" step="0.1" value="0" />
             </label>
             <span class="dash">—</span>
@@ -61,7 +61,7 @@
               <span>Fim</span>
               <input id="endTime" type="number" min="0" step="0.1" value="0" />
             </label>
-            <div class="duration-chip"><span>Duração</span><strong id="durationChip">0,0 s</strong></div>
+            <div class="duration-chip"><span>Trecho ativo</span><strong id="durationChip">0,0 s</strong></div>
           </div>
 
           <div class="range-wrap" aria-label="Intervalo selecionado">
@@ -69,6 +69,17 @@
             <div id="rangeFill" class="range-fill"></div>
             <input id="startRange" class="range range-start" type="range" min="0" max="100" step="0.01" value="0" aria-label="Início do trecho" />
             <input id="endRange" class="range range-end" type="range" min="0" max="100" step="0.01" value="100" aria-label="Fim do trecho" />
+          </div>
+
+          <div class="segments-area">
+            <div class="segments-heading">
+              <div>
+                <p>Trechos do áudio final</p>
+                <small>Os trechos serão unidos na ordem abaixo.</small>
+              </div>
+              <button id="addSegment" class="add-segment-button" type="button"><span>＋</span> Adicionar trecho</button>
+            </div>
+            <div id="segmentsList" class="segments-list"></div>
           </div>
 
           <div class="export-row">
@@ -80,7 +91,7 @@
                 <option value="256">Máxima · 256 kbps</option>
               </select>
             </label>
-            <button id="exportButton" class="export-button" type="button"><span>↓</span> Baixar trecho em MP3</button>
+            <button id="exportButton" class="export-button" type="button"><span>↓</span> Baixar áudio final em MP3</button>
           </div>
           <p id="status" class="status" role="status" aria-live="polite"></p>
         </div>

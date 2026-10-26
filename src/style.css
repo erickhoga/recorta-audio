@@ -66,6 +66,27 @@ h1 em { color: var(--green); font-style: italic; font-family: Georgia, serif; fo
 .range { appearance: none; position: absolute; inset: 0; width: 100%; height: 32px; margin: 0; background: transparent; pointer-events: none; }
 .range::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--acid); border: 2px solid var(--green); pointer-events: auto; }
 .range::-moz-range-thumb { width: 15px; height: 15px; border-radius: 50%; background: var(--acid); border: 2px solid var(--green); pointer-events: auto; }
+.segments-area { margin: 4px 0 26px; padding: 22px; background: #f1f1e9; border: 1px solid #deded5; }
+.segments-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 15px; }
+.segments-heading p { margin: 0 0 5px; font-size: 13px; font-weight: 700; }
+.segments-heading small { color: var(--muted); font-size: 11px; }
+.add-segment-button { border: 1px solid var(--green); background: transparent; color: var(--green); padding: 9px 12px; border-radius: 2px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.add-segment-button:hover { background: var(--green); color: #fff; }
+.add-segment-button span { margin-right: 4px; }
+.segments-list { display: grid; gap: 8px; }
+.segment-row { display: grid; grid-template-columns: minmax(78px, .7fr) minmax(95px, 1fr) auto minmax(95px, 1fr) minmax(64px, .55fr) auto; gap: 9px; align-items: end; padding: 12px; border: 1px solid transparent; background: var(--paper); }
+.segment-row.active { border-color: var(--green); box-shadow: inset 3px 0 0 var(--acid); }
+.segment-name { align-self: center; border: 0; background: none; color: var(--ink); padding: 8px 4px; font-weight: 700; text-align: left; }
+.segment-field { display: grid; gap: 6px; color: var(--muted); font: 500 9px/1 ui-monospace, 'SFMono-Regular', Consolas, monospace; text-transform: uppercase; letter-spacing: .07em; }
+.segment-field input { width: 100%; min-width: 0; border: 1px solid var(--line); background: #fff; padding: 8px; color: var(--ink); }
+.segment-field input:focus { outline: none; border-color: var(--green); }
+.segment-separator { color: var(--muted); padding-bottom: 8px; }
+.segment-length { align-self: center; color: var(--muted); font: 500 10px/1 ui-monospace, 'SFMono-Regular', Consolas, monospace; white-space: nowrap; }
+.segment-actions { display: flex; gap: 4px; align-self: center; }
+.segment-action { width: 28px; height: 28px; border: 1px solid var(--line); background: transparent; color: var(--muted); display: grid; place-items: center; border-radius: 2px; }
+.segment-action:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+.segment-action:disabled { opacity: .25; cursor: default; }
+.segment-remove:hover:not(:disabled) { border-color: #a13f35; color: #a13f35; }
 .export-row { padding-top: 25px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: end; gap: 20px; }
 .quality-label { width: min(240px, 42%); }
 .quality-label select { width: 100%; text-transform: none; font-family: Inter, Avenir, 'Segoe UI', system-ui, sans-serif; letter-spacing: normal; }
@@ -81,5 +102,10 @@ footer a { color: inherit; text-underline-offset: 3px; }
   .hero { padding: 48px 0 34px; }.intro { font-size: 15px; }
   .workspace { padding: 18px; }.wave-panel { height: 145px; }
   .selection-controls { grid-template-columns: 1fr auto 1fr; }.duration-chip { grid-column: 1 / -1; border-left: 0; padding-left: 0; }
+  .segments-area { padding: 14px; }.segments-heading { align-items: flex-start; flex-direction: column; }
+  .add-segment-button { width: 100%; }
+  .segment-row { grid-template-columns: 1fr auto 1fr; }
+  .segment-name { grid-column: 1 / -1; padding: 2px 0 5px; }
+  .segment-length { grid-column: 1 / 2; }.segment-actions { grid-column: 2 / -1; justify-content: end; }
   .export-row { align-items: stretch; flex-direction: column; }.quality-label { width: 100%; }.export-button { width: 100%; }
 }
