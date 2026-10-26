@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recorte seus áudios localmente e baixe em MP3." />
+    <title>Recorta — corte de áudio local</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Recorta, página inicial">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>recorta</span>
+        </a>
+        <span class="privacy"><span aria-hidden="true">●</span> Tudo fica no seu computador</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Editor de áudio local</p>
+        <h1>Corte o que importa.<br /><em>O resto fica de fora.</em></h1>
+        <p class="intro">Escolha um áudio, marque o trecho e baixe em MP3. Simples, rápido e sem enviar arquivos para a internet.</p>
+      </section>
+
+      <section class="editor-card" aria-label="Editor de áudio">
+        <div id="emptyState" class="drop-zone" tabindex="0" role="button" aria-label="Escolher um arquivo de áudio">
+          <input id="fileInput" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.aac" hidden />
+          <span class="upload-icon" aria-hidden="true">↗</span>
+          <h2>Solte seu áudio aqui</h2>
+          <p>ou clique para escolher um arquivo</p>
+          <button id="chooseButton" class="primary-button" type="button">Escolher áudio</button>
+          <small>MP3, WAV, M4A, OGG ou AAC</small>
+        </div>
+
+        <div id="workspace" class="workspace" hidden>
+          <div class="file-row">
+            <div>
+              <p id="fileName" class="file-name"></p>
+              <p id="fileMeta" class="file-meta"></p>
+            </div>
+            <button id="changeFile" class="text-button" type="button">Trocar arquivo</button>
+          </div>
+
+          <div class="wave-panel">
+            <canvas id="waveform" aria-label="Forma de onda do áudio"></canvas>
+            <div id="playhead" class="playhead" aria-hidden="true"></div>
+          </div>
+
+          <div class="transport">
+            <button id="playButton" class="play-button" type="button" aria-label="Reproduzir trecho">▶</button>
+            <div class="time-readout"><span id="currentTime">00:00.0</span><span>/</span><span id="selectionDuration">00:00.0</span></div>
+          </div>
+
+          <div class="selection-controls">
+            <label>
+              <span>Início</span>
+              <input id="startTime" type="number" min="0" step="0.1" value="0" />
+            </label>
+            <span class="dash">—</span>
+            <label>
+              <span>Fim</span>
+              <input id="endTime" type="number" min="0" step="0.1" value="0" />
+            </label>
+            <div class="duration-chip"><span>Duração</span><strong id="durationChip">0,0 s</strong></div>
+          </div>
+
+          <div class="range-wrap" aria-label="Intervalo selecionado">
+            <div class="range-track"></div>
+            <div id="rangeFill" class="range-fill"></div>
+            <input id="startRange" class="range range-start" type="range" min="0" max="100" step="0.01" value="0" aria-label="Início do trecho" />
+            <input id="endRange" class="range range-end" type="range" min="0" max="100" step="0.01" value="100" aria-label="Fim do trecho" />
+          </div>
+
+          <div class="export-row">
+            <label class="quality-label">Qualidade
+              <select id="bitrate">
+                <option value="96">Leve · 96 kbps</option>
+                <option value="128" selected>Boa · 128 kbps</option>
+                <option value="192">Alta · 192 kbps</option>
+                <option value="256">Máxima · 256 kbps</option>
+              </select>
+            </label>
+            <button id="exportButton" class="export-button" type="button"><span>↓</span> Baixar trecho em MP3</button>
+          </div>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <footer>Feito para funcionar no seu navegador, sem cadastro e sem uploads. Codificação MP3 por <a href="https://lame.sourceforge.io/" target="_blank" rel="noreferrer">LAME</a>.</footer>
+    </main>
+    <script src="./vendor/lame.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
